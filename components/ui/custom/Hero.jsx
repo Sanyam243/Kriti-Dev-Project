@@ -1,8 +1,11 @@
 "use client"
 import { MessageContext } from '@/app/context/MessageContext'
+import { UserContext } from '@/app/context/UserContext'
 import { Link, ArrowRight } from 'lucide-react'
 import React, { useContext } from 'react'
 import { useState } from 'react'
+import SignInPopUp from './SignInPopUp'
+
 function Hero() {
     const [prompt, setPrompt] = useState("")
     const examplePrompts = [
@@ -14,12 +17,21 @@ function Hero() {
 
 
     ]
-    const {messages,setMessages} =useContext(MessageContext);
+    const { messages, setMessages } = useContext(MessageContext);
+    const { user, setUser } = useContext(UserContext);
+    const [openDialog,setOpenDialog] =useState(false);
 
-    const onGenerate =(input)=>{
+    const onGenerate = (input) => {
+
+        if (!user?.name) {
+            setOpenDialog(true);
+        }
+        
+
+
         setMessages({
-            role:'user',
-            content:input
+            role: 'user',
+            content: input
         })
         console.log(messages)
     }
@@ -35,7 +47,7 @@ function Hero() {
                         setPrompt(e.target.value)
                     }} className='bg-gray-800 outline-none w-full h-40 p-2 rounded-md' placeholder='What you want to build' type="text-area"
                     />
-                    {prompt != "" && <ArrowRight className='bg-blue-500 p-2 w-10 h-8 cursor-pointer text-white' onClick={()=>onGenerate(prompt)} />}
+                    {prompt != "" && <ArrowRight className='bg-blue-500 p-2 w-10 h-8 cursor-pointer text-white' onClick={() => onGenerate(prompt)} />}
 
                 </div>
                 <div><Link className='w-7 h-5' /></div>
@@ -44,14 +56,16 @@ function Hero() {
 
             <div className='grid grid-cols-3 gap-3'>
                 {examplePrompts.map((prompt, index) => (
-                    <div className='flex gap-1 border p-1 text-sm text-center items-center rounded-md cursor-pointer hover shadow-sm' onClick={()=>onGenerate(prompt)}>
+                    <div className='flex gap-1 border p-1 text-sm text-center items-center rounded-md cursor-pointer hover shadow-sm' onClick={() => onGenerate(prompt)}>
                         {prompt}
                     </div>
 
                 ))}
             </div>
 
-
+            <SignInPopUp openDialog={openDialog} closeDialog={(v)=>{
+                setOpenDialog(false)
+            }}/>
 
 
 
