@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Provider from "./provider";
 import "./globals.css";
 import Header from "@/components/ui/custom/Header";
+import { ConvexClientProvider } from "./ConvexClientProvider";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,9 +14,11 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning >
       <body>
         <Header/>
+        <ConvexClientProvider>
         <Provider>
         {children}
         </Provider>
+        </ConvexClientProvider>
         
       </body>
     </html>
