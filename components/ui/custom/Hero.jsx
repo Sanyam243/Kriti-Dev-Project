@@ -19,21 +19,18 @@ function Hero() {
     ]
     const { messages, setMessages } = useContext(MessageContext);
     const { user, setUser } = useContext(UserContext);
-    const [openDialog,setOpenDialog] =useState(false);
+    const [openDialog, setOpenDialog] = useState(false);
 
     const onGenerate = (input) => {
 
         if (!user?.name) {
             setOpenDialog(true);
         }
-        
-
-
         setMessages({
             role: 'user',
             content: input
         })
-        console.log(messages)
+
     }
     return (
         <div className='flex flex-col justify-center items-center gap-3 mt-40 '>
@@ -63,9 +60,9 @@ function Hero() {
                 ))}
             </div>
 
-            <SignInPopUp openDialog={openDialog} closeDialog={(v)=>{
+            <SignInPopUp openDialog={openDialog} closeDialog={(v) => {
                 setOpenDialog(false)
-            }}/>
+            }} />
 
 
 
