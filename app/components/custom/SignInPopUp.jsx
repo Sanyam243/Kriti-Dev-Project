@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import { Button } from '../button'
+import { Button } from '../../../components/ui/button'
 import { useGoogleLogin } from '@react-oauth/google';
-import { api } from '@/convex/_generated/api';
+import { api } from '../../../convex/_generated/api';
 import axios from 'axios';
 import uuid4 from "uuid4";
 import {
@@ -10,9 +10,8 @@ import {
     DialogDescription,
     DialogHeader,
     DialogTitle,
-} from "@/components/ui/dialog"
-import { UserContext } from '@/app/context/UserContext';
-import { CreateUser } from '@/convex/user';
+} from  '../../../components/ui/dialog'
+import { UserContext } from '../../context/UserContext';
 import { useMutation } from 'convex/react';
 function SignInPopUp({ openDialog, closeDialog }) {
     const { user, setUser } = useContext(UserContext)

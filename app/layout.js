@@ -1,7 +1,6 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import Provider from "./provider";
 import "./globals.css";
-import Header from "@/components/ui/custom/Header";
+import Header from "./components/custom/Header";
 import { ConvexClientProvider } from "./ConvexClientProvider";
 
 export const metadata = {
