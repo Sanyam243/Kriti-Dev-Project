@@ -6,5 +6,11 @@ export default defineSchema({
         email:v.string(),
         image:v.string(),
         uuid:v.string()
+    }),
+
+    workspace:defineTable({
+        messages:v.any(),
+        fileData:v.optional(v.any()),
+        user:v.id('users')
     })
 })

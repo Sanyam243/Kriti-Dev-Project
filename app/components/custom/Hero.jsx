@@ -5,31 +5,46 @@ import { Link, ArrowRight } from 'lucide-react'
 import React, { useContext } from 'react'
 import { useState } from 'react'
 import SignInPopUp from './SignInPopUp'
+import { useMutation } from 'convex/react'
+import { api } from '../../../convex/_generated/api'
+import { useRouter } from 'next/navigation'
 
 function Hero() {
+    const router =useRouter()
     const [prompt, setPrompt] = useState("")
     const examplePrompts = [
-        'Make a Course Selling Website',
-        'Create a Todo App',
-        'Make a E-Commerece Website',
-        'Make a Weather App',
-        'Create a Budget Track App'
-
-
-    ]
+        { key: 1, prompt: 'Make a Course Selling Website' },
+        { key: 2, prompt: 'Create a Todo App' },
+        { key: 3, prompt: 'Make an E-Commerce Website' },
+        { key: 4, prompt: 'Make a Weather App' },
+        { key: 5, prompt: 'Create a Budget Track App' }
+    ];
+    
     const { messages, setMessages } = useContext(MessageContext);
     const { user, setUser } = useContext(UserContext);
+    const CreateWorkspace = useMutation(api.workspace.CreateWorkspace)
     const [openDialog, setOpenDialog] = useState(false);
 
-    const onGenerate = (input) => {
+    const onGenerate = async (input) => {
 
         if (!user?.name) {
             setOpenDialog(true);
         }
+        console.log(user)
         setMessages({
             role: 'user',
             content: input
         })
+        const msg ={
+            role: 'user',
+            content: input
+        }
+        const workspaceId = await CreateWorkspace({
+            messages:[msg],
+            user:user?._id
+        })
+        console.log(workspaceId)
+        router.push('./workspace/'+workspaceId)
 
     }
     return (
@@ -52,9 +67,9 @@ function Hero() {
 
 
             <div className='grid grid-cols-3 gap-3'>
-                {examplePrompts.map((prompt, index) => (
-                    <div className='flex gap-1 border p-1 text-sm text-center items-center rounded-md cursor-pointer hover shadow-sm' onClick={() => onGenerate(prompt)}>
-                        {prompt}
+                {examplePrompts.map((Prompt) => (
+                    <div key={Prompt.key} className='flex gap-1 border p-1 text-sm text-center items-center rounded-md cursor-pointer hover shadow-sm' onClick={() => onGenerate(Prompt.prompt)}>
+                        {Prompt.prompt}
                     </div>
 
                 ))}
