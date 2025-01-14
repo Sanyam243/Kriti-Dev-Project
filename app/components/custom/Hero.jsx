@@ -1,6 +1,6 @@
 "use client"
-import { MessageContext } from '@/app/context/MessageContext'
-import { UserContext } from '@/app/context/UserContext'
+import { MessageContext } from '../../context/MessageContext'
+import { UserContext } from '../../context/UserContext'
 import { Link, ArrowRight } from 'lucide-react'
 import React, { useContext } from 'react'
 import { useState } from 'react'
