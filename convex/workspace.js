@@ -15,3 +15,14 @@ export const CreateWorkspace = mutation({
         return workspaceId
     }
 })
+
+export const GetWorkspace = query({
+    args:{
+        workspaceId:v.id('workspace')
+    },
+    handler: async (ctx,args)=>{
+        const workspace = await ctx.db.get(args.workspaceId)
+            return workspace;
+        }
+
+    });
