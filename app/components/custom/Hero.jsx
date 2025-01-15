@@ -41,7 +41,7 @@ function Hero() {
         if (!user?.name) {
             setOpenDialog(true);
         }
-        console.log(user)
+      
         setMessages({
             role: 'user',
             content: input
