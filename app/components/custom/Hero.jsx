@@ -15,6 +15,8 @@ import {
     AccordionTrigger,
   } from '../../../components/ui/accordion.jsx'
 
+import SideBar from './SideBar/SideBar.jsx'
+
 function Hero() {
     const router =useRouter()
     const [prompt, setPrompt] = useState("")
@@ -59,52 +61,56 @@ function Hero() {
 
     }
     return (
-        <div className='flex flex-col justify-center items-center gap-3 mt-40 '>
-            <h1 className='text-4xl text-center font-bold'>What do you want to build ?</h1>
-            <h2>Prompt run, deploy, edit and make websites</h2>
+        <>
+            <SideBar />
+            <div className='flex flex-col justify-center items-center gap-3 mt-40 '>
+                <h1 className='text-4xl text-center font-bold'>What do you want to build ?</h1>
+                <h2>Prompt run, deploy, edit and make websites</h2>
 
-            <div className=' rounded-xl w-1/2 p-2 bg-gray-800'>
-                <div className='w-full flex'>
+                <div className=' rounded-xl w-1/2 p-2 bg-gray-800'>
+                    <div className='w-full flex'>
 
-                    <textarea value={prompt} onChange={(e) => {
-                        setPrompt(e.target.value)
-                    }} className='bg-gray-800 outline-none w-full h-40 p-2 rounded-md' placeholder='What you want to build' type="text-area"
-                    />
-                    {prompt != "" && <ArrowRight className='bg-blue-500 p-2 w-10 h-8 cursor-pointer text-white' onClick={() => onGenerate(prompt)} />}
+                        <textarea value={prompt} onChange={(e) => {
+                            setPrompt(e.target.value)
+                        }} className='bg-gray-800 outline-none w-full h-40 p-2 rounded-md' placeholder='What you want to build' type="text-area"
+                        />
+                        {prompt != "" && <ArrowRight className='bg-blue-500 p-2 w-10 h-8 cursor-pointer text-white' onClick={() => onGenerate(prompt)} />}
 
-                </div>
-                <div><Link className='w-7 h-5' /></div>
-            </div>
-
-
-            <div className='grid grid-cols-3 gap-3'>
-                {examplePrompts.map((Prompt) => (
-                    <div key={Prompt.key} className='flex gap-1 border p-1 text-sm text-center justify-center items-center rounded-md cursor-pointer hover shadow-sm' onClick={() => onGenerate(Prompt.prompt)}>
-                        {Prompt.prompt}
                     </div>
+                    <div><Link className='w-7 h-5' /></div>
+                </div>
 
-                ))}
+
+                <div className='grid grid-cols-3 gap-3'>
+                    {examplePrompts.map((Prompt) => (
+                        <div key={Prompt.key} className='flex gap-1 border p-1 text-sm text-center justify-center items-center rounded-md cursor-pointer hover shadow-sm' onClick={() => onGenerate(Prompt.prompt)}>
+                            {Prompt.prompt}
+                        </div>
+
+                    ))}
+                </div>
+                
+                <div className='my-20'>
+                    <h1 className='text-3xl font-bold'>Frequently Asked Questions</h1>
+                    {exampleQnA.map((entry) => (
+                        <Accordion key={entry.key} type="single" collapsible>
+                        <AccordionItem value={`item-${entry.key}`}>
+                            <AccordionTrigger className='text-base'>{entry.question}</AccordionTrigger>
+                            <AccordionContent className='text-sm'>
+                                {entry.answer}
+                            </AccordionContent>
+                        </AccordionItem>
+                        </Accordion>
+                    ))}
+                </div>
+
+                <SignInPopUp openDialog={openDialog} closeDialog={(v) => {
+                    setOpenDialog(false)
+                }} />
+
             </div>
-            
-            <div className='my-20'>
-                <h1 className='text-3xl font-bold'>Frequently Asked Questions</h1>
-                {exampleQnA.map((entry) => (
-                    <Accordion key={entry.key} type="single" collapsible>
-                    <AccordionItem value={`item-${entry.key}`}>
-                        <AccordionTrigger className='text-base'>{entry.question}</AccordionTrigger>
-                        <AccordionContent className='text-sm'>
-                            {entry.answer}
-                        </AccordionContent>
-                    </AccordionItem>
-                    </Accordion>
-                ))}
-            </div>
-
-            <SignInPopUp openDialog={openDialog} closeDialog={(v) => {
-                setOpenDialog(false)
-            }} />
-
-        </div>
+        </>
+        
     )
 }
 
