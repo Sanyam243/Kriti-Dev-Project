@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
 import { api } from '../../../convex/_generated/api';
 import { UserContext } from '../../context/UserContext';
+import ReactMarkDown from 'react-markdown'
 import Image from 'next/image'
 import { Link, ArrowRight, Loader2Icon } from 'lucide-react'
 import axios from 'axios';
@@ -78,7 +79,7 @@ function ChatView() {
         {messages && messages?.map((message, index) => (
           <div key={index} className='flex mb-3 gap-2 bg-slate-600 p-2 rounded-md items-center leading-7 '>
            
-            {message.content}
+            <ReactMarkDown className='flex flex-col'>{message.content}</ReactMarkDown>
             {message?.role == 'user' && <Image className='rounded-full' src={user?.image||"image"} alt='User Image' width={40} height={40}></Image>}
            
           </div>
