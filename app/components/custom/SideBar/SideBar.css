@@ -8,11 +8,6 @@
     --navbar-light-secondary: #8392a5;
   }
   
-  /* html, body {
-    margin: 0;
-    background: var(--background);
-  } */
-  
   #nav-toggle:checked ~ #nav-header {
     width: calc(var(--navbar-width-min) - 16px);
   }
