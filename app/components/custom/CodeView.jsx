@@ -57,11 +57,11 @@ function CodeView() {
       <div className ="bg-[#181818] w-full p-2 border">
         <div className='flex items-center rounded-full w-[140px] gap-3  shrink-0 bg-black p-1 justify-center  justify-center'>
           <h2 onClick={()=>setSelectSection('code')}
-          className={`text-sm cursor-pointer ${selectSection=='code' && 'text-blue-500 bg-blue-500 bg-opacity-15 p-1 px-2 rounded-full'}`}>
+          className={`text-sm cursor-pointer ${selectSection=='code' && 'rounded-full bg-opacity-15 text-green-400 bg-green-400  p-1 px-2 rounded-full'}`}>
             Code
           </h2>
           <h2 onClick={()=>setSelectSection('preview')}
-           className={`text-sm cursor-pointer ${selectSection=='preview' && 'text-blue-500 bg-blue-500 bg-opacity-15 p-1 px-2 rounded-full'}`}>
+           className={`text-sm cursor-pointer ${selectSection=='preview' && 'rounded-full text-green-400 bg-green-400 bg-opacity-15 p-1 px-2 '}`}>
 Preview
           </h2>
         </div>
