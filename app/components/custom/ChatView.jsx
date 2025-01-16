@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
 import { api } from '../../../convex/_generated/api';
 import { UserContext } from '../../context/UserContext';
+import { MessageContext } from '../../context/MessageContext'
 import ReactMarkDown from 'react-markdown'
 import Image from 'next/image'
 import { Link, ArrowRight, Loader2Icon } from 'lucide-react'
@@ -13,7 +14,7 @@ import Prompt from '../llm/Prompt';
 function ChatView() {
   const { workspaceId } = useParams();
   const convex = useConvex()
-  const [messages, setMessages] = useState()
+  const { messages, setMessages } = useContext(MessageContext);
   const { user, setUser } = useContext(UserContext)
   const [prompt, setPrompt] = useState("")
   const [loading,setLoading] =useState(false)
