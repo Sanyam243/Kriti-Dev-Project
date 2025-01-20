@@ -77,7 +77,7 @@ function ChatView() {
   return (
     <div className=' relative h-[85vh] flex flex-col p-2 gap-3 '>
       <div className='flex-1 gap-2 overflow-y-scroll p-3 scrollbar-hide '>
-        {messages.length>0 && messages?.map((message, index) => (
+        {messages?.length>0 && messages?.map((message, index) => (
           <div key={index} className='flex mb-3 gap-2 bg-slate-600 p-2 rounded-md items-center leading-7 '>
            
             <ReactMarkDown className='flex flex-col'>{message.content}</ReactMarkDown>

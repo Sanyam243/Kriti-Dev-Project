@@ -1,0 +1,8 @@
+{
+    "functions": {
+      
+      "app/api/*.jsx": {
+        "maxDuration": 60 
+      }
+    }
+  }
