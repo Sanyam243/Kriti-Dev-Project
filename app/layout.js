@@ -16,13 +16,13 @@ export default function RootLayout({ children }) {
        
         <ConvexClientProvider>
         <Provider>
-        <Header/>
+      
         {children}
         </Provider>
         </ConvexClientProvider>
-        <div className="flex p-3 items-center justify-center m-0 bg-purple-950 text-white bottom-0 left-0 w-full">
+        {/* <div className="flex p-3 items-center justify-center m-0 bg-purple-950 text-white bottom-0 left-0 w-full">
     <p className="text-xs text-gray-300">Copyright 2025</p>
-  </div>
+  </div> */}
       </body>
     </html>
   );

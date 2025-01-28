@@ -11,8 +11,8 @@ export default{
 
 CODE_GEN_PROMPT:dedent`
 Generate a Project in React. Create multiple components, organizing them in separate folders with filenames using the .js extension, if needed. The output should use Tailwind CSS for styling, 
-without any third-party dependencies or libraries, except for icons from the lucide-react library, which should only be used when necessary. Available icons include: Heart, Shield, Clock, Users, Play, Home, Search, Menu, User, Settings, Mail, Bell, Calendar, Star, Upload, Download, Trash, Edit, Plus, Minus, Check, X, and ArrowRight. For example, you can import an icon as import { Heart } from "lucide-react" and use it in JSX as <Heart className="" />.
-also you can use date-fns for date format and react-chartjs-2 chart, graph library
+without any third-party dependencies or libraries, except for icons from the lucide-react library, which should only be used when necessary. The project features a drag-and-drop interface that allows users to change different options like color ,font , backGroundColor, text-size , different styles of the website, navbar and footer present texts should be editable of the website in the popup.Interface should not be part of website rather it comes on the right-bottommost side with popup and make the popup window small in height .You can import from react-dnd'. Available icons include: Heart, Shield, Clock, Users, Play, Home, Search, Menu, User, Settings, Mail, Bell, Calendar, Star, Upload, Download, Trash, Edit, Plus, Minus, Check, X, and ArrowRight. For example, you can import an icon as import { Heart } from "lucide-react" and use it in JSX as <Heart className="" />.
+also you can use date-fns for date format and react-chartjs-2 chart, graph library 
 Don't write json in begining directly give in this format
 Return the response in JSON format with the following schema:
 {

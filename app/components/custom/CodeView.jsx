@@ -12,13 +12,19 @@ import {
 } from "@codesandbox/sandpack-react";
 import data from '../../../additional/data'
 import { Loader2Icon } from 'lucide-react'
+import SandpackPreviewClient from './SandpackPreviewClient'
+import { ActionContext } from '../../context/ActionContext'
 
 function CodeView() {
 
   const { messages, setMessages } = useContext(MessageContext);
-  const [selectSection, setSelectSection] = useState('preview');
+  const [selectSection, setSelectSection] = useState('code');
   const [files, setFiles] = useState(data?.DEFAULT_FILE || {});
   const [loading, setLoading] = useState(false);
+  const {action ,setAction} = useContext(ActionContext);
+
+
+
 
   useEffect(() => {
     if (messages?.length > 0) {
@@ -30,6 +36,11 @@ function CodeView() {
     }
 
   }, [messages])
+
+useEffect(()=>{
+setSelectSection('preview');
+},[action])
+
 
   const generateWesbsiteCode = async () => {
 
@@ -86,7 +97,7 @@ function CodeView() {
             <SandpackCodeEditor style={{ height: '80vh' }} />
           </> :
             <>
-              <SandpackPreview style={{ height: '80vh' }} showNavigator={true} />
+<SandpackPreviewClient/>
             </>}
 
 

@@ -62,6 +62,11 @@ export default config;
     "date-fns": "^4.1.0",
     "react-chartjs-2": "^5.3.0",
     "chart.js": "^4.4.7",
+    "@react-dnd/invariant": "^2.0.0",
+    "@react-dnd/shallowequal": "^2.0.0",
+    "dnd-core": "12.0.1",
+    "react-dnd": "^14.0.0",  // added react-dnd
+    "react-dnd-html5-backend": "^14.0.0"  // added react-dnd-html5-backend
   },
 
 

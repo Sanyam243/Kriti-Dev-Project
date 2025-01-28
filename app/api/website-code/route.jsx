@@ -6,7 +6,7 @@ import { genAiCode } from "../../components/llm/LLM";
 export async function POST(req) {
     try {
         const { prompt } = await req.json();
-
+           console.log(prompt);
         const data = await genAiCode.sendMessage(prompt);
 
         // Await the response text properly
@@ -32,3 +32,5 @@ export async function POST(req) {
         return NextResponse.json({ error: "An internal server error occurred" }, { status: 500 });
     }
 }
+
+

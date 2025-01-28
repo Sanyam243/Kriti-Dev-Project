@@ -11,6 +11,7 @@ import { Link, ArrowRight, Loader2Icon } from 'lucide-react'
 import axios from 'axios';
 import Prompt from '../llm/Prompt';
 
+
 function ChatView() {
   const { workspaceId } = useParams();
   const convex = useConvex()
@@ -19,6 +20,7 @@ function ChatView() {
   const [prompt, setPrompt] = useState("")
   const [loading,setLoading] =useState(false)
   const UpdateWorkspace = useMutation(api.workspace.UpdateWorkspace)
+
 
   useEffect(() => {
     workspaceId && GetWorkspace();
@@ -30,6 +32,7 @@ function ChatView() {
     })
     console.log(result)
     setMessages(result?.messages)
+   
   }
 
   const GetAiResponse = async () => {
@@ -76,22 +79,22 @@ function ChatView() {
   }, [messages])
   return (
     <div className=' relative h-[85vh] flex flex-col p-2 gap-3 '>
-      <div className='flex-1 gap-2 overflow-y-scroll p-3 scrollbar-hide '>
+      <div className='flex-1 gap-2 overflow-y-scroll pl-2 scrollbar-hide '>
         {messages?.length>0 && messages?.map((message, index) => (
           <div key={index} className='flex mb-3 gap-2 bg-slate-600 p-2 rounded-md items-center leading-7 '>
            
-            <ReactMarkDown className='flex flex-col'>{message.content}</ReactMarkDown>
+
             {message?.role == 'user' && <Image className='rounded-full' src={user?.image||"image"} alt='User Image' width={40} height={40}></Image>}
-           
+            <ReactMarkDown className='flex flex-col'>{message.content}</ReactMarkDown>
           </div>
           
         ))}
         {loading&& <div className='flex mb-3 gap-2 bg-slate-600 p-2 rounded-md items-center '> <Loader2Icon className='animate-spin'></Loader2Icon> Generating Response...</div>}
       </div>
 
-
-      <div className=' rounded-xl w-full p-2 bg-gray-800'>
-        <div className='w-full flex'>
+<div className='flex gap-2 items-end cursor-pointer'>{user&&<Image src={user?.image} alt='user' width={30} height={30} />}
+      <div className='p-5 rounded-xl w-full p-2 bg-gray-800' style={{backgroundColor:"grey"}}>
+        <div className=' flex gap-2'>
 
           <textarea value={prompt} onChange={(e) => {
             setPrompt(e.target.value)
@@ -102,6 +105,7 @@ function ChatView() {
         </div>
         <div><Link className='w-7 h-5' /></div>
       </div>
+    </div>
     </div>
   )
 }
