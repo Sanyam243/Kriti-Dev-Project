@@ -62,8 +62,8 @@ function Hero() {
     }
     return (
         <>
-            <SideBar />
-            <div className='flex flex-col justify-center items-center gap-3 mt-40 '>
+            {/* <SideBar /> */}
+            <div className='flex flex-col justify-center items-center w-full gap-3 mt-20 '>
                 <h1 className='text-4xl text-center font-bold'>What do you want to build ?</h1>
                 <h2>Prompt run, deploy, edit and make websites</h2>
 
