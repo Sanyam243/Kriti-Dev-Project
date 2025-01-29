@@ -34,7 +34,7 @@ function Header() {
   };
 
   return (
-    <div className="flex p-4 items-center justify-between bg-purple-950">
+    <div className="flex p-4 items-center justify-between bg-customPurple">
       <Image
         onClick={handleLogoClick}
         src={"/logo.png"}
@@ -46,14 +46,15 @@ function Header() {
       {!user?.name ? (
         <div className="flex gap-3 ml-auto">
           <Button
-            className="bg-purple-700 text-gray-300 rounded font-semibold px-2 hover:bg-purple-600"
+            className="bg-purple-700 text-gray-300 rounded font-semibold px-2 hover:bg-customPurple"
             onClick={login}
           >
             Sign In
           </Button>
-          <Button className="bg-purple-700 text-gray-300 rounded font-semibold px-2 hover:bg-purple-600">
+          <Button className="bg-purple-700 text-gray-300 rounded font-semibold px-2 hover:bg-customPurple">
             Get Started
           </Button>
+          
         </div>
       ) : (
         path?.includes("workspace") && (

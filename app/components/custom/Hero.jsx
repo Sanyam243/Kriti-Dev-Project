@@ -7,7 +7,13 @@ import { useState } from 'react'
 import SignInPopUp from './SignInPopUp'
 import { useMutation } from 'convex/react'
 import { api } from '../../../convex/_generated/api'
+import FlipCard from './_components/flipCard'
+import ImageOverlap from './_components/ImageOverlap'
 import { useRouter } from 'next/navigation'
+import HighlightSection from './_components/contents'
+
+
+
 import {
     Accordion,
     AccordionContent,
@@ -61,10 +67,10 @@ function Hero() {
     }
     return (
         <>
-            {/* <SideBar /> */}
-            <div className='flex flex-col justify-center items-center w-full gap-3 mt-20 '>
-                <h1 className='text-4xl text-center font-bold'>What do you want to build ?</h1>
-                <h2>Prompt run, deploy, edit and make websites</h2>
+            
+            <div className='flex flex-col justify-center items-center w-full gap-3 mt-20  '>
+                <h1 className='text-4xl text-center font-bold font-montserrat'>Bringing your vision to life.</h1>
+                <h2 className='font-montserrat'>Prompt run, deploy, edit and make websites</h2>
 
                 <div className=' rounded-xl w-1/2 p-2 bg-gray-800'>
                     <div className='w-full flex'>
@@ -89,7 +95,41 @@ function Hero() {
                     ))}
                 </div>
                 
-                <div className='my-20'>
+               
+
+                <SignInPopUp openDialog={openDialog} closeDialog={(v) => {
+                    setOpenDialog(false)
+                }} />
+
+            </div>
+       
+
+
+<div className="flex flex-col items-center my-10">
+  <h2 className="text-center text-2xl font-bold mb-2">Testimonials</h2> 
+  <div className="flex justify-center flex-wrap gap-4">
+    <FlipCard
+      title="Custom Domains"
+      description="A short sentence describing this callout is."
+      imageUrl="https://s25.postimg.cc/frbd9towf/cta-2.png"
+      backContent="More details about Custom Domains."
+    />
+    <FlipCard
+      title="Never Sleeps"
+      description="A short sentence describing this callout is."
+      imageUrl="https://s25.postimg.cc/hj4c4qnov/cta-3.png"
+      backContent="More details about Never Sleeps."
+    />
+    <FlipCard
+      title="Dedicated"
+      description="A short sentence describing this callout is."
+      imageUrl="https://s25.postimg.cc/l2q9ujy4f/cta-4.png"
+      backContent="More details about Dedicated."
+    />
+  </div>
+</div>
+
+    <div className='my-10 ml-20 mr-20'>
                     <h1 className='text-3xl font-bold'>Frequently Asked Questions</h1>
                     {exampleQnA.map((entry) => (
                         <Accordion key={entry.key} type="single" collapsible>
@@ -102,15 +142,14 @@ function Hero() {
                         </Accordion>
                     ))}
                 </div>
-
-                <SignInPopUp openDialog={openDialog} closeDialog={(v) => {
-                    setOpenDialog(false)
-                }} />
-
-            </div>
+            
+                <HighlightSection/>
+               
+               
         </>
         
     )
 }
 
 export default Hero
+

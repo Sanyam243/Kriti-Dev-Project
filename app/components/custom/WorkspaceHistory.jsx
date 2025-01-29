@@ -33,18 +33,24 @@ function WorkspaceHistory() {
     <div>
       Workspace Chat History
 
-      <div className='flex flex-col p-3 gap-3'>
+
+{
+  user?.name ?(<div className='flex flex-col p-3 gap-3'>
 
 
-        {workSpaceHistory?.length>0 && workSpaceHistory.map((workspace,index)=>(
-          <Link key={index} href={`workspace/${workspace._id}`} >
-          <div onClick={toggleSidebar} className='p-2 border text-gray-400 shadow-sm text-sm hover:text-white cursor-pointer'>
-            {workspace?.messages[0]?.content}
-            </div>
-            </Link>
-        ))}
-         {loading&& <div className='flex mb-3 gap-2 bg-slate-600 p-2 rounded-md items-center '> <Loader2Icon className='animate-spin'></Loader2Icon> Loading Chats....</div>}
-      </div>
+    {workSpaceHistory?.length>0 && workSpaceHistory.map((workspace,index)=>(
+      <Link key={index} href={`workspace/${workspace._id}`} >
+      <div onClick={toggleSidebar} className='p-2 border text-gray-400 shadow-sm text-sm hover:text-white cursor-pointer'>
+        {workspace?.messages[0]?.content}
+        </div>
+        </Link>
+    ))}
+     {loading&& <div className='flex mb-3 gap-2 bg-slate-600 p-2 rounded-md items-center '> <Loader2Icon className='animate-spin'></Loader2Icon> Loading Chats....</div>}
+  </div>):(
+    <div>Login Please</div>
+  )
+}
+      
     </div>
   )
 }
