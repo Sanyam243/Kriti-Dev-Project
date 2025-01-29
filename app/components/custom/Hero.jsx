@@ -14,7 +14,7 @@ import {
     AccordionItem,
     AccordionTrigger,
   } from '../../../components/ui/accordion.jsx'
-
+import Footer from './Footer.jsx'
 
 function Hero() {
     const router =useRouter()
@@ -108,6 +108,8 @@ function Hero() {
                 }} />
 
             </div>
+            <Footer/>
+            
         </>
         
     )

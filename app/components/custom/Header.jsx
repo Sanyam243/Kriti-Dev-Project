@@ -37,11 +37,11 @@ function Header() {
     <div className="flex p-4 items-center justify-between bg-purple-950">
       <Image
         onClick={handleLogoClick}
-        src={"/logo.png"}
+        src={"/yomanasnav.jpg"}
         alt="logo"
         width={40}
-        height={40}
-        className="cursor-pointer"
+        height={10}
+        className="cursor-pointer rounded-full"
       />
       {!user?.name ? (
         <div className="flex gap-3 ml-auto">
