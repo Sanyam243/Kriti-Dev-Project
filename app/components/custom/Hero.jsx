@@ -15,7 +15,6 @@ import {
     AccordionTrigger,
   } from '../../../components/ui/accordion.jsx'
 
-import SideBar from './SideBar/SideBar.jsx'
 
 function Hero() {
     const router =useRouter()

@@ -93,7 +93,7 @@ function ChatView() {
       </div>
 
 <div className='flex gap-2 items-end cursor-pointer'>{user&&<Image src={user?.image} alt='user' width={30} height={30} />}
-      <div className='p-5 rounded-xl w-full p-2 bg-gray-800' style={{backgroundColor:"grey"}}>
+      <div className='p-5 rounded-xl w-full bg-gray-800' style={{backgroundColor:"grey"}}>
         <div className=' flex gap-2'>
 
           <textarea value={prompt} onChange={(e) => {

@@ -7,8 +7,9 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { useConvex } from 'convex/react';
 import { api } from '../convex/_generated/api';
 import { useRouter } from 'next/navigation';
-
+import { SidebarProvider, SidebarTrigger } from "../components/ui/sidebar"
 import Header from './components/custom/Header';
+import SideBar, { AppSidebar } from './components/custom/AppSideBar';
 import { ActionContext } from './context/ActionContext';
 
 function Provider({ children }) {
@@ -22,7 +23,7 @@ function Provider({ children }) {
     if (typeof window != undefined) {
       const user = JSON.parse(localStorage.getItem('user'))
 
-      if(!user){
+      if (!user) {
         router.push('/')
         return;
       }
@@ -38,41 +39,42 @@ function Provider({ children }) {
     isAuthenticated()
   }, [])
 
-  
+
   return (
 
     <div>
       <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
         <UserContext.Provider value={{ user, setUser }}>
           <MessageContext.Provider value={{ messages, setMessages }}>
-            <ActionContext.Provider value={{action,setAction}}>
-            
-            <NextThemesProvider
-              attribute="class"
-              defaultTheme="dark"
-              enableSystem
-              disableTransitionOnChange
-            >
-            
-           
-           <Header />
+            <ActionContext.Provider value={{ action, setAction }}>
 
-           
-         
-            
+              <NextThemesProvider
+                attribute="class"
+                defaultTheme="dark"
+                enableSystem
+                disableTransitionOnChange
+              >
 
-                {children}
-               
-          
-          
-            </NextThemesProvider>
+                
+                  <Header />
+                  
+                  <SidebarProvider defaultOpen={false}>
+                  
+                    <AppSidebar/>
+                    <SidebarTrigger />
+                  
+                  {children}
+
+                </SidebarProvider>
+
+              </NextThemesProvider>
 
             </ActionContext.Provider>
 
 
 
 
-           
+
           </MessageContext.Provider>
         </UserContext.Provider>
       </GoogleOAuthProvider>
