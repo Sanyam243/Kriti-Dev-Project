@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
     darkMode: ["class"],
     content: [
@@ -8,7 +9,12 @@ export default {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			montserrat: ['Montserrat', 'sans-serif'], // Add Montserrat font
+		  },
+
   		colors: {
+			customPurple: 'rgb(68, 42, 138)',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

@@ -84,7 +84,7 @@ function ChatView() {
           <div key={index} className='flex mb-3 gap-2 bg-slate-600 p-2 rounded-md items-center leading-7 '>
            
 
-            {message?.role == 'user' && <Image className='rounded-full' src={user?.image||"image"} alt='User Image' width={40} height={40}></Image>}
+            {/* {message?.role == 'user' && <Image className='rounded-full' src={user?.image||"image"} alt='User Image' width={40} height={40}></Image>} */}
             <ReactMarkDown className='flex flex-col'>{message.content}</ReactMarkDown>
           </div>
           

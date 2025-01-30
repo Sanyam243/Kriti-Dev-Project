@@ -3,6 +3,13 @@ import "./globals.css";
 import Header from "./components/custom/Header";
 import { ConvexClientProvider } from "./ConvexClientProvider";
 import Footer from "./components/custom/Footer";
+import { Roboto } from 'next/font/google'; // Importing the font directly from Next.js
+
+const montserrat = Roboto({
+  weight: ['100', '400', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata = {
   title: "Website AI",

@@ -27,7 +27,7 @@ function Provider({ children }) {
         router.push('/')
         return;
       }
-      //Fetch the user
+ 
       const result = await convex.query(api.user.GetUser, {
         email: user?.email
       })

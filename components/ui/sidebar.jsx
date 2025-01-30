@@ -11,12 +11,15 @@ import { Input } from "../../components/ui/input"
 import { Separator } from "../../components/ui/separator"
 import { Sheet, SheetContent } from "../../components/ui/sheet"
 import { Skeleton } from "../../components/ui/skeleton"
+import  { useContext } from 'react'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "../../components/ui/tooltip"
+import { UserContext } from "../../app/context/UserContext";
+import Image from "next/image";
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -27,7 +30,11 @@ const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 
 const SidebarContext = React.createContext(null)
 
+
 function useSidebar() {
+  
+  
+
   const context = React.useContext(SidebarContext)
   if (!context) {
     throw new Error("useSidebar must be used within a SidebarProvider.")
@@ -219,6 +226,7 @@ Sidebar.displayName = "Sidebar"
 
 const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) => {
   const { toggleSidebar } = useSidebar()
+  const { user, setUser } = useContext(UserContext)
 
   return (
     (<Button
@@ -232,7 +240,8 @@ const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) 
         toggleSidebar()
       }}
       {...props}>
-      <PanelLeft />
+        {!user?.name ? ( <Image className='rounded-full' src={user?.image} alt='User Image' width={40} height={40}  ></Image>):(<Image className='rounded-full' src={'/logo.png'} alt='User Image' width={40} height={40}  ></Image>)}
+   
       <span className="sr-only">Toggle Sidebar</span>
     </Button>)
   );
