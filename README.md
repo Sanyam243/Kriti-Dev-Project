@@ -162,6 +162,13 @@ Users can download the frontend code in ZIP format for further customization or 
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+our website is deployed in [Link Text](https://kriti-dev-project-g4iq.vercel.app/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+# Bugs Encountered
+## 1. Whenever a new user logi/signin for first times error may be shown , on refresh it may disapperas
+## 2. On giving random prompt , website related to it may be generated or may show hello world only (website generated hello world is set as default).
+## 3. Website which import dependencies apart from inserted dependencies , can may show error in development/preview side.
+## 4. Direct export is not possible as we have used sandbox , which redirects to sandbox directly.
+## 5. Speech recognition might required proper pronounciation to give current prompt to our llm.
