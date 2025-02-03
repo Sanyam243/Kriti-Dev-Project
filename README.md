@@ -5,6 +5,18 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Set Up
 
 
+- Step 1: Clone this repository into your local machine. (See [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository))
+- Step 2: Install all the dependencies. 
+```bash
+npm install
+```
+- Step 3: Run the React server.
+```bash
+npm start
+```
+---
+
+
 
 
 
