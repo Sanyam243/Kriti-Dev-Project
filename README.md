@@ -170,4 +170,4 @@ our website is deployed in [Link Text](https://kriti-dev-project-g4iq.vercel.app
 ## 2. On giving random prompt , website related to it may be generated or may show hello world only (website generated hello world is set as default).
 ## 3. Website which import dependencies apart from inserted dependencies , can may show error in development/preview side.
 ## 4. Direct export is not possible as we have used sandbox , which redirects to sandbox directly.
-## 5. Speech recognition might required proper pronounciation to give current prompt to our llm.
+## 5. Speech recognition might required proper pronounciation to give correct prompt to our llm.
