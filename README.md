@@ -6,24 +6,95 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 
 - Step 1: Clone this repository into your local machine. (See [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository))
+```bash
+git clone https://github.com/Sanyam243/Kriti-Dev-Project.git
+```
 - Step 2: Install all the dependencies. 
 ```bash
 npm install
 ```
-- Step 3: Run the React server.
+- Step 3: Install all the dependencies. 
 ```bash
-npm start
+npx convex dev
 ```
+A .env.local file can be seen in your project
+
+- Step 4: Get GOOGLE CLIENT ID.
+
+
+Follow these steps to get your Google Client ID for authentication:
+
+### 1. Go to the Google Developer Console
+- Visit the [Google Developer Console](https://console.developers.google.com/).
+
+### 2. Create a New Project
+- Click on the **"Select a Project"** dropdown on the top of the page.
+- Click on **"New Project"** and give it a name.
+- Click **"Create"**.
+
+### 3. Enable Google API
+- In the left sidebar, click on **"APIs & Services"** > **"Library"**.
+- Search for **"Google+ API"** or **"OAuth 2.0"**.
+- Enable the API by clicking **"Enable"**.
+
+### 4. Configure OAuth Consent Screen
+- In the left sidebar, click on **"OAuth consent screen"**.
+- Choose an **External** or **Internal** user type depending on your needs.
+- Fill in the necessary fields (app name, user support email, etc.).
+- Click **Save**.
+
+### 5. Create OAuth 2.0 Credentials
+- In the left sidebar, go to **"Credentials"**.
+- Click on **"Create Credentials"** > **"OAuth client ID"**.
+- Choose **"Web Application"**.
+- Under **"Authorized JavaScript origins"**, add the URL where your application will be running (e.g., `http://localhost:3000` for local development).
+- Under **"Authorized redirect URIs"**, add the redirect URI you will use (e.g., `http://localhost:3000/auth/callback`).
+- Click **Create**.
+
+### 6. Get Your Google Client ID
+- Once created, you will see the **Client ID** in the credentials list.
+- Copy the **Client ID** and use it in your application for Google Authentication.
+
+## 7. Add the Client ID to Your App
+-Add this in .env.local file.
+ NEXT_PUBLIC_GOOGLE_CLIENT_ID=your id
+
 ---
+## Steps to Obtain Gemini API Key
+
+Follow these steps to get your Gemini API Key for integration:
+
+### 1. Create a Gemini Account
+- Visit the [Gemini website](https://www.gemini.com/) and sign up for an account if you don't already have one.
+- Complete the registration process by verifying your email address.
+
+### 2. Log in to Your Gemini Account
+- After registration, log in to your Gemini account using your credentials.
+
+### 3. Go to the API Management Section
+- Once logged in, click on your account icon at the top right corner.
+- From the dropdown, select **"API"** to access the API management section.
+
+### 4. Create a New API Key
+- In the API section, click on the **"Create New API Key"** button.
+- Select the permissions you need for the API key (for example, reading market data, placing orders, etc.).
+- Set any additional security options (such as IP whitelisting or two-factor authentication).
+
+### 5. Save Your API Key
+- After creating the API key, you will be provided with an **API Key** and a **Secret Key**.
+- **Important**: Copy and store the **Secret Key** immediately, as it will not be shown again.
+
+### 6. Add the API Key to Your Application
+- Add this to .env.local file NEXT_PUBLIC_GEMINI_API_KEY=your key
 
 
 
 
 
-
+![Main Page](./public/ss1.png)
 
 # Google Authentication System and Chat Window Features
-
+![workspace page](./public/ss2.png)
 ## 01. Google Authentication System
 This setup allows users to authenticate using their Google accounts, streamlining the login process and enhancing the overall user experience. By leveraging Google authentication, users can quickly access the platform without the need to create new credentials.
 
@@ -66,6 +137,7 @@ The generator is deployed on Vercel, ensuring fast and reliable hosting with min
 
 
 # Generated Website
+![customize panel](./public/ss3.png)
 ## Website Customization and Deployment Features
 
 ### 01. Continuous Fine-Tuning
