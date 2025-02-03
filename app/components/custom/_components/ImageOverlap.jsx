@@ -31,9 +31,9 @@ const ImageOverlap = () => {
 
   return (
     <div className={styles.imageContainer}>
-      <Image src="/image4.png" alt="Image 1" width={500} height={500} className={styles.image} />
-      <Image src="/image3.png" alt="Image 2" width={500} height={500} className={styles.image} />
-      <Image src="/image2.png" alt="Image 3" width={500} height={500} className={styles.image} />
+      <Image src="/ss1.png" alt="Image 1" width={500} height={500} className={styles.image} />
+      <Image src="/ss2.png" alt="Image 2" width={500} height={500} className={styles.image} />
+      <Image src="/ss3.png" alt="Image 3" width={500} height={500} className={styles.image} />
       {/* Add more images as needed */}
     </div>
   );

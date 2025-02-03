@@ -151,25 +151,25 @@ function Hero() {
 
 
 <div className="flex flex-col items-center my-10">
-  <h2 className="text-center text-2xl font-bold mb-2">Testimonials</h2> 
+  <h2 className="text-center text-2xl font-bold mb-2">ABOUT AI GENERATED WEBSITES</h2> 
   <div className="flex justify-center flex-wrap gap-4">
     <FlipCard
-      title="Custom Domains"
-      description="A short sentence describing this callout is."
+      title="AI-Empowerment"
+      description="AI-Powered Content Generation"
       imageUrl="https://s25.postimg.cc/frbd9towf/cta-2.png"
-      backContent="More details about Custom Domains."
+      backContent="Discover how AI can assist in creating engaging content for your website"
     />
     <FlipCard
-      title="Never Sleeps"
-      description="A short sentence describing this callout is."
+      title="Generative AI"
+      description="Enhance User Engagement"
       imageUrl="https://s25.postimg.cc/hj4c4qnov/cta-3.png"
-      backContent="More details about Never Sleeps."
+      backContent="Learn strategies to boost user interaction through personalized content."
     />
     <FlipCard
-      title="Dedicated"
-      description="A short sentence describing this callout is."
+      title="Coding is Easy"
+      description="Optimize Your Workflow"
       imageUrl="https://s25.postimg.cc/l2q9ujy4f/cta-4.png"
-      backContent="More details about Dedicated."
+      backContent="Explore tools and techniques to streamline your content creation process."
     />
   </div>
 </div>

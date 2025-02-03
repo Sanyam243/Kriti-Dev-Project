@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Left Section - Branding & Socials */}
           <div className="mb-6 md:mb-0">
             <div className="flex items-center space-x-2">
-              <span className="text-2xl font-bold">💙 lovable</span>
+              <span className="text-2xl font-bold">💙 Developers</span>
             </div>
             {/* Social Icons */}
             <div className="flex space-x-4 mt-4">
@@ -67,8 +67,8 @@ const Footer = () => {
         <div className="mt-10 border-t border-gray-700 pt-4 text-center">
           <p className="text-gray-400 text-sm md:text-base font-medium">
             Crafted with ❤️ by 
-            <span className="text-white font-serif text-lg font-bold"> Krish Raj </span> &  
-            <span className="text-white font-serif text-lg font-bold"> Sanyam Jain</span>
+            <span className="text-white font-serif text-lg font-bold"> DEVELOPERS </span> 
+            
           </p>
         </div>
       </footer>
