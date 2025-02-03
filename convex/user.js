@@ -1,12 +1,40 @@
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
 
+// export const CreateUser = mutation({
+//   args: {
+//     name: v.string(),
+//     email: v.string(),
+//     image: v.string(),
+//     uuid: v.string(),
+//   },
+//   handler: async (ctx, args) => {
+//     // Check if user already exists
+//     const user = await ctx.db
+//       .query("users")
+//       .filter((q) => q.eq(q.field("email"), args.email))
+//       .collect();
+
+//     if (user?.length === 0) {
+//       // Create a new user if none exists
+//       const result =await ctx.db.insert("users", {
+//         name: args.name,
+//         email: args.email,
+//         image: args.image,
+//         uuid: args.uuid,
+//       });
+//       console.log(result)
+//     }
+//   },
+// });
+
 export const CreateUser = mutation({
   args: {
     name: v.string(),
     email: v.string(),
     image: v.string(),
     uuid: v.string(),
+    phone: v.optional(v.string()), // Make phone optional
   },
   handler: async (ctx, args) => {
     // Check if user already exists
@@ -17,16 +45,18 @@ export const CreateUser = mutation({
 
     if (user?.length === 0) {
       // Create a new user if none exists
-      const result =await ctx.db.insert("users", {
+      const result = await ctx.db.insert("users", {
         name: args.name,
         email: args.email,
         image: args.image,
         uuid: args.uuid,
+        phone: args.phone || null,  // Store phone if provided, otherwise null
       });
-      console.log(result)
+      console.log(result);
     }
   },
 });
+
 
 export const GetUser = query({
   args:{email:v.string()},
@@ -40,3 +70,21 @@ export const GetUser = query({
   }
 
 })
+export const UpdateUser = mutation({
+  args: {
+    userId: v.id("users"),
+    name: v.optional(v.string()),   // Name is optional
+    phone: v.optional(v.string()),  // Phone is optional
+    image: v.optional(v.string()),  // Image is optional
+  },
+  handler: async (ctx, args) => {
+    const updates = {};
+    if (args.name) updates.name = args.name;     // Only update if name is provided
+    if (args.phone) updates.phone = args.phone;  // Only update if phone is provided
+    if (args.image) updates.image = args.image;  // Only update if image is provided
+
+    await ctx.db.patch(args.userId, updates);    // Update the user document with the provided fields
+  },
+});
+
+

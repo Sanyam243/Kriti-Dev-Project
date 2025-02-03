@@ -51,9 +51,9 @@ function Header() {
           >
             Sign In
           </Button>
-          <Button className="bg-purple-700 text-gray-300 rounded font-semibold px-2 hover:bg-customPurple">
+          {/* <Button className="bg-purple-700 text-gray-300 rounded font-semibold px-2 hover:bg-customPurple">
             Get Started
-          </Button>
+          </Button> */}
           
         </div>
       ) : (

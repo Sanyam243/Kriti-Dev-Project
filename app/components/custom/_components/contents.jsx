@@ -5,19 +5,19 @@ import Image from "next/image";
 
 const textData = [
   {
-    title: "20× faster than coding.",
+    title: "code in your own native language .",
     description: "Use your native language to describe your idea, then watch Lovable do the rest. Creating for the web is faster and easier than ever before.",
-    image: "/image4.png" // Correct path relative to /public
+    image: "/ss1.png" 
   },
   {
-    title: "Prompt to edit.",
-    description: "Forget about the overhead of frontend engineers or freelancers to maintain your website. Ask in text to change anything.",
-    image: "/image3.png" // Correct path relative to /public
+    title: "Re-prompting feature.",
+    description: "Say goodbye to the hassle of relying on frontend engineers or freelancers to manage your website. Just send a text, and we'll handle the changes for you!",
+    image: "/ss2.png"
   },
   {
-    title: "You own the code.",
-    description: "Everything that Lovable builds is yours. Sync your codebase to Github and edit in any code editor, export or publish your app instantly with one click.",
-    image: "/image2.png" // Correct path relative to /public
+    title: "Drag and Drop Customization Interface.",
+    description: "Interface allows user to edit content directly by clicking or checking the options, apply different fonts, colors, and styles to text elements, ensuring the website aligns with their desired aesthetic.",
+    image: "/ss3.png" 
   }
 ];
 

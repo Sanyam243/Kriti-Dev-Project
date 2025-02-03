@@ -240,7 +240,7 @@ const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) 
         toggleSidebar()
       }}
       {...props}>
-        {!user?.name ? ( <Image className='rounded-full' src={user?.image} alt='User Image' width={40} height={40}  ></Image>):(<Image className='rounded-full' src={'/logo.png'} alt='User Image' width={40} height={40}  ></Image>)}
+        {!user?.name ? ( <Image className='rounded-full' src={user?.image||"/logo.png"} alt='User Image' width={40} height={40}  ></Image>):(<Image className='rounded-full' src={"/logo.png"} alt='User Image' width={40} height={40}  ></Image>)}
    
       <span className="sr-only">Toggle Sidebar</span>
     </Button>)

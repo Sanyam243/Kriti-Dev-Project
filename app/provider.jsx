@@ -11,6 +11,7 @@ import { SidebarProvider, SidebarTrigger } from "../components/ui/sidebar"
 import Header from './components/custom/Header';
 import SideBar, { AppSidebar } from './components/custom/AppSideBar';
 import { ActionContext } from './context/ActionContext';
+import Footer from './components/custom/Footer';
 
 function Provider({ children }) {
   const convex = useConvex();
@@ -66,7 +67,7 @@ function Provider({ children }) {
                   {children}
 
                 </SidebarProvider>
-
+<Footer/>
               </NextThemesProvider>
 
             </ActionContext.Provider>

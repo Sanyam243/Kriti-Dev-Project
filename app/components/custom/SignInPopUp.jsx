@@ -32,6 +32,7 @@ function SignInPopUp({ openDialog, closeDialog }) {
                 name:user?.name,
                 email:user?.email,
                 image:user?.picture,
+                phone: user?.phone || "",
                 uuid:uuid4()
             })
 
