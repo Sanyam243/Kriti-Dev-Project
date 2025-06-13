@@ -40,7 +40,9 @@ import { MessageContext } from "../../context/MessageContext"
       router.push("/"); // or router.push("/login") if you have a specific login page
 
     };
-
+const pricingClick=()=>{
+  router.push("/pricing");  // Navigate to /pricing page
+}
     const handleProfileClick = () => {
       router.push("/profile");  // Navigate to /profile page
     };
@@ -62,7 +64,7 @@ import { MessageContext } from "../../context/MessageContext"
           {/* <div className="flex p-2 text-md gap-2 cursor-pointer"  onClick={handleProfileClick}><SettingsIcon /></div> */}
           <div className="flex p-2 text-md gap-2 cursor-pointer" onClick={handleSignOut}><LogOut />  SignOut</div>
           <div className="flex p-2 text-md gap-2 cursor-pointer">{user &&<Image className="rounded-full cursor-pointer" onClick={handleProfileClick} src={user?.image||null} alt="user" width={30} height={30} />} <h2 className="font-semibold text-white" onClick={handleProfileClick}>{user?.name||null}</h2></div>
-
+          <div className="flex p-2 text-md gap-2 cursor-pointer"  onClick={pricingClick}>My Subscription </div>
          </div>):(<div></div>)}
          
         </SidebarFooter>

@@ -12,6 +12,7 @@ import Header from './components/custom/Header';
 import SideBar, { AppSidebar } from './components/custom/AppSideBar';
 import { ActionContext } from './context/ActionContext';
 import Footer from './components/custom/Footer';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 function Provider({ children }) {
   const convex = useConvex();
@@ -45,6 +46,7 @@ function Provider({ children }) {
 
     <div>
       <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
+      <PayPalScriptProvider  options={{ clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID }}>
         <UserContext.Provider value={{ user, setUser }}>
           <MessageContext.Provider value={{ messages, setMessages }}>
             <ActionContext.Provider value={{ action, setAction }}>
@@ -78,6 +80,7 @@ function Provider({ children }) {
 
           </MessageContext.Provider>
         </UserContext.Provider>
+        </PayPalScriptProvider>
       </GoogleOAuthProvider>
     </div>
   )

@@ -7,7 +7,8 @@ export default defineSchema({
     image: v.optional(v.string()),  // Optional field for image
     name: v.optional(v.string()),   // Optional field for name
     uuid: v.string(),
-    phone: v.optional(v.string()),  // Optional field for phone
+    phone: v.optional(v.string()),  
+    token:v.optional(v.number())// Optional field for phone
   }),
 
   workspace: defineTable({

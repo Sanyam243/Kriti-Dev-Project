@@ -14,15 +14,18 @@ import data from '../../../additional/data'
 import { Loader2Icon } from 'lucide-react'
 import SandpackPreviewClient from './SandpackPreviewClient'
 import { ActionContext } from '../../context/ActionContext'
+import { UserContext } from '../../context/UserContext'
+import { useMutation } from 'convex/react'
+import { api } from '../../../convex/_generated/api'
 
 function CodeView() {
-
+  const { user, setUser } = useContext(UserContext)
   const { messages, setMessages } = useContext(MessageContext);
   const [selectSection, setSelectSection] = useState('code');
   const [files, setFiles] = useState(data?.DEFAULT_FILE || {});
   const [loading, setLoading] = useState(false);
   const {action ,setAction} = useContext(ActionContext);
-
+const UpdateToken=useMutation(api.user.UpdateToken);
 
 
 
@@ -60,9 +63,16 @@ setSelectSection('preview');
         const Result = response.data;
         const FileStructure = { ...data.DEFAULT_FILE, ...Result?.files }
         setFiles(FileStructure);
+        const token= Number(user?.token)-Number(countToken(JSON.stringify(Result)))
+        setUser((prev) => ({ ...prev, token: token }))
+        await UpdateToken({
+          userId:user?._id,
+          token:token
+        })
       }
 
       setLoading(false);
+
     } catch (error) {
       setLoading(false);
       console.error('Error cause on generating website', error.response?.data || error.message);

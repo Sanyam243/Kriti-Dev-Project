@@ -58,6 +58,10 @@ function Hero() {
         if (!user?.name) {
             setOpenDialog(true);
         }
+        if(user?.token<10){
+          toast("You don't have enough tokens to generate a response. Please upgrade your plan.")
+          return;
+          }
       
         setMessages({
             role: 'user',

@@ -1,12 +1,15 @@
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
 
+
 // export const CreateUser = mutation({
 //   args: {
 //     name: v.string(),
 //     email: v.string(),
 //     image: v.string(),
 //     uuid: v.string(),
+//     phone: v.optional(v.string()),
+//      // Make phone optional
 //   },
 //   handler: async (ctx, args) => {
 //     // Check if user already exists
@@ -17,13 +20,15 @@ import { mutation, query } from "./_generated/server";
 
 //     if (user?.length === 0) {
 //       // Create a new user if none exists
-//       const result =await ctx.db.insert("users", {
+//       const result = await ctx.db.insert("users", {
 //         name: args.name,
 //         email: args.email,
 //         image: args.image,
 //         uuid: args.uuid,
+//         phone: args.phone || null,  
+//         token:5000// Store phone if provided, otherwise null
 //       });
-//       console.log(result)
+//       console.log(result);
 //     }
 //   },
 // });
@@ -34,29 +39,32 @@ export const CreateUser = mutation({
     email: v.string(),
     image: v.string(),
     uuid: v.string(),
-    phone: v.optional(v.string()), // Make phone optional
+    phone: v.optional(v.string()), // optional field
   },
   handler: async (ctx, args) => {
-    // Check if user already exists
     const user = await ctx.db
       .query("users")
       .filter((q) => q.eq(q.field("email"), args.email))
       .collect();
 
     if (user?.length === 0) {
-      // Create a new user if none exists
-      const result = await ctx.db.insert("users", {
+      const newUser = {
         name: args.name,
         email: args.email,
         image: args.image,
         uuid: args.uuid,
-        phone: args.phone || null,  // Store phone if provided, otherwise null
-      });
+        token: 5000,
+      };
+      
+      if (args.phone !== undefined) {
+        newUser.phone = args.phone;
+      }
+
+      const result = await ctx.db.insert("users", newUser);
       console.log(result);
     }
   },
 });
-
 
 export const GetUser = query({
   args:{email:v.string()},
@@ -88,3 +96,29 @@ export const UpdateUser = mutation({
 });
 
 
+// export const UpdateToken = mutation({
+// args:{
+//   token: v.number(),
+//   userId: v.id("users"),
+// },
+// handler:async (ctx, args) => {
+//   const result=await ctx.db.patch(args.userId, {
+//     token
+//   });
+//   return result;
+// }
+
+// })
+
+export const UpdateToken = mutation({
+  args: {
+    token: v.number(),
+    userId: v.id("users"),
+  },
+  handler: async (ctx, args) => {
+    const result = await ctx.db.patch(args.userId, {
+      token: args.token,
+    });
+    return result;
+  },
+});
