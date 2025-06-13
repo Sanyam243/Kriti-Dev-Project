@@ -17,6 +17,7 @@ import { ActionContext } from '../../context/ActionContext'
 import { UserContext } from '../../context/UserContext'
 import { useMutation } from 'convex/react'
 import { api } from '../../../convex/_generated/api'
+import { countToken } from './ChatView'
 
 function CodeView() {
   const { user, setUser } = useContext(UserContext)

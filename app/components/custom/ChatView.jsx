@@ -13,8 +13,11 @@ import { Link, ArrowRight, Loader2Icon, Mic } from 'lucide-react'
 import axios from 'axios';
 import Prompt from '../llm/Prompt';
 
-export const countToken=(inputText)=>{
-return inputText.trim().split(/\s+/).filter(word=>word).length; 
+// export const countToken=(inputText)=>{
+// return inputText.trim().split(/\s+/).filter(word=>word).length; 
+// }
+export const countToken = (text) => {
+  return Math.ceil(text.length / 4); // crude approximation
 }
 
 function ChatView() {
@@ -59,6 +62,7 @@ const UpdateToken=useMutation(api.user.UpdateToken);
       messages:[...messages, AiResult],
       workspaceId: id
     })
+    
     const token= Number(user?.token)-Number(countToken(JSON.stringify(AiResult)))
     setUser((prev) => ({ ...prev, token: token }))
     await UpdateToken({
